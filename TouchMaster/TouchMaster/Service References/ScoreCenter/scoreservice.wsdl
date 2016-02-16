@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s1="http://tempuri.org/AbstractTypes" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="RegisterScore">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="anonymousId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gameName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gameVariation" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="latitude" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="longitude" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="score" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="direction" type="tns:SortDirection" />
+            <s:element minOccurs="0" maxOccurs="1" name="securityCode" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="SortDirection">
+        <s:restriction base="s:string">
+          <s:enumeration value="Ascending" />
+          <s:enumeration value="Descending" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="RegisterScoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterScoreResult" type="tns:ArrayOfScoreItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfScoreItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ScoreItem" nillable="true" type="tns:ScoreItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ScoreItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Index" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Score" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsLast" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetScores">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="gameName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gameVariation" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="direction" type="tns:SortDirection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetScoresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetScoresResult" type="tns:ArrayOfScoreItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetScoresWithCurrent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="gameName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gameVariation" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastScore" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="direction" type="tns:SortDirection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetScoresWithCurrentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetScoresWithCurrentResult" type="tns:ArrayOfScoreItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfScoreItem" nillable="true" type="tns:ArrayOfScoreItem" />
+    </s:schema>
+    <s:schema targetNamespace="http://tempuri.org/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RegisterScoreSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterScore" />
+  </wsdl:message>
+  <wsdl:message name="RegisterScoreSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterScoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetScoresSoapIn">
+    <wsdl:part name="parameters" element="tns:GetScores" />
+  </wsdl:message>
+  <wsdl:message name="GetScoresSoapOut">
+    <wsdl:part name="parameters" element="tns:GetScoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetScoresWithCurrentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetScoresWithCurrent" />
+  </wsdl:message>
+  <wsdl:message name="GetScoresWithCurrentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetScoresWithCurrentResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterScoreHttpGetIn">
+    <wsdl:part name="anonymousId" type="s:string" />
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="gameName" type="s:string" />
+    <wsdl:part name="gameVariation" type="s:string" />
+    <wsdl:part name="latitude" type="s:string" />
+    <wsdl:part name="longitude" type="s:string" />
+    <wsdl:part name="score" type="s:string" />
+    <wsdl:part name="direction" type="s:string" />
+    <wsdl:part name="securityCode" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="RegisterScoreHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfScoreItem" />
+  </wsdl:message>
+  <wsdl:message name="GetScoresHttpGetIn">
+    <wsdl:part name="gameName" type="s:string" />
+    <wsdl:part name="gameVariation" type="s:string" />
+    <wsdl:part name="direction" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetScoresHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfScoreItem" />
+  </wsdl:message>
+  <wsdl:message name="GetScoresWithCurrentHttpGetIn">
+    <wsdl:part name="gameName" type="s:string" />
+    <wsdl:part name="gameVariation" type="s:string" />
+    <wsdl:part name="lastScore" type="s:string" />
+    <wsdl:part name="direction" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetScoresWithCurrentHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfScoreItem" />
+  </wsdl:message>
+  <wsdl:message name="RegisterScoreHttpPostIn">
+    <wsdl:part name="anonymousId" type="s:string" />
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="gameName" type="s:string" />
+    <wsdl:part name="gameVariation" type="s:string" />
+    <wsdl:part name="latitude" type="s:string" />
+    <wsdl:part name="longitude" type="s:string" />
+    <wsdl:part name="score" type="s:string" />
+    <wsdl:part name="direction" type="s:string" />
+    <wsdl:part name="securityCode" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="RegisterScoreHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfScoreItem" />
+  </wsdl:message>
+  <wsdl:message name="GetScoresHttpPostIn">
+    <wsdl:part name="gameName" type="s:string" />
+    <wsdl:part name="gameVariation" type="s:string" />
+    <wsdl:part name="direction" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetScoresHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfScoreItem" />
+  </wsdl:message>
+  <wsdl:message name="GetScoresWithCurrentHttpPostIn">
+    <wsdl:part name="gameName" type="s:string" />
+    <wsdl:part name="gameVariation" type="s:string" />
+    <wsdl:part name="lastScore" type="s:string" />
+    <wsdl:part name="direction" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetScoresWithCurrentHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfScoreItem" />
+  </wsdl:message>
+  <wsdl:portType name="ScoreServiceSoap">
+    <wsdl:operation name="RegisterScore">
+      <wsdl:input message="tns:RegisterScoreSoapIn" />
+      <wsdl:output message="tns:RegisterScoreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScores">
+      <wsdl:input message="tns:GetScoresSoapIn" />
+      <wsdl:output message="tns:GetScoresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScoresWithCurrent">
+      <wsdl:input message="tns:GetScoresWithCurrentSoapIn" />
+      <wsdl:output message="tns:GetScoresWithCurrentSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ScoreServiceHttpGet">
+    <wsdl:operation name="RegisterScore">
+      <wsdl:input message="tns:RegisterScoreHttpGetIn" />
+      <wsdl:output message="tns:RegisterScoreHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScores">
+      <wsdl:input message="tns:GetScoresHttpGetIn" />
+      <wsdl:output message="tns:GetScoresHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScoresWithCurrent">
+      <wsdl:input message="tns:GetScoresWithCurrentHttpGetIn" />
+      <wsdl:output message="tns:GetScoresWithCurrentHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ScoreServiceHttpPost">
+    <wsdl:operation name="RegisterScore">
+      <wsdl:input message="tns:RegisterScoreHttpPostIn" />
+      <wsdl:output message="tns:RegisterScoreHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScores">
+      <wsdl:input message="tns:GetScoresHttpPostIn" />
+      <wsdl:output message="tns:GetScoresHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScoresWithCurrent">
+      <wsdl:input message="tns:GetScoresWithCurrentHttpPostIn" />
+      <wsdl:output message="tns:GetScoresWithCurrentHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ScoreServiceSoap" type="tns:ScoreServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterScore">
+      <soap:operation soapAction="http://tempuri.org/RegisterScore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScores">
+      <soap:operation soapAction="http://tempuri.org/GetScores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScoresWithCurrent">
+      <soap:operation soapAction="http://tempuri.org/GetScoresWithCurrent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ScoreServiceSoap12" type="tns:ScoreServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterScore">
+      <soap12:operation soapAction="http://tempuri.org/RegisterScore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScores">
+      <soap12:operation soapAction="http://tempuri.org/GetScores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScoresWithCurrent">
+      <soap12:operation soapAction="http://tempuri.org/GetScoresWithCurrent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ScoreServiceHttpGet" type="tns:ScoreServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="RegisterScore">
+      <http:operation location="/RegisterScore" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScores">
+      <http:operation location="/GetScores" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScoresWithCurrent">
+      <http:operation location="/GetScoresWithCurrent" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ScoreServiceHttpPost" type="tns:ScoreServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="RegisterScore">
+      <http:operation location="/RegisterScore" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScores">
+      <http:operation location="/GetScores" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScoresWithCurrent">
+      <http:operation location="/GetScoresWithCurrent" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ScoreService">
+    <wsdl:port name="ScoreServiceSoap" binding="tns:ScoreServiceSoap">
+      <soap:address location="http://mobilesrc.com/scorecenter/scoreservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ScoreServiceSoap12" binding="tns:ScoreServiceSoap12">
+      <soap12:address location="http://mobilesrc.com/scorecenter/scoreservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ScoreServiceHttpGet" binding="tns:ScoreServiceHttpGet">
+      <http:address location="http://mobilesrc.com/scorecenter/scoreservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ScoreServiceHttpPost" binding="tns:ScoreServiceHttpPost">
+      <http:address location="http://mobilesrc.com/scorecenter/scoreservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

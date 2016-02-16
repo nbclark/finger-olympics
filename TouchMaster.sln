@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010 Express for Windows Phone
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FantasticFingerFun", "TouchMaster\TouchMaster\FantasticFingerFun.csproj", "{F6F43B42-F291-49F9-8A84-7030758D99A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FingerOlympicsContent", "TouchMaster\TouchMasterContent\FingerOlympicsContent.contentproj", "{52E1A874-7677-4D14-9F13-5A7C73A29D66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapEditor", "MapEditor\MapEditor.csproj", "{B9520CDF-0DB7-4D6E-8308-2663E3F24259}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Windows Phone = Debug|Windows Phone
+		Debug|x86 = Debug|x86
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Windows Phone = Release|Windows Phone
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6F43B42-F291-49F9-8A84-7030758D99A0}.Debug|Mixed Platforms.ActiveCfg = Debug|Windows Phone
+		{F6F43B42-F291-49F9-8A84-7030758D99A0}.Debug|Mixed Platforms.Build.0 = Debug|Windows Phone
+		{F6F43B42-F291-49F9-8A84-7030758D99A0}.Debug|Mixed Platforms.Deploy.0 = Debug|Windows Phone
+		{F6F43B42-F291-49F9-8A84-7030758D99A0}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{F6F43B42-F291-49F9-8A84-7030758D99A0}.Debug|Windows Phone.Build.0 = Debug|Windows Phone
+		{F6F43B42-F291-49F9-8A84-7030758D99A0}.Debug|Windows Phone.Deploy.0 = Debug|Windows Phone
+		{F6F43B42-F291-49F9-8A84-7030758D99A0}.Debug|x86.ActiveCfg = Debug|Windows Phone
+		{F6F43B42-F291-49F9-8A84-7030758D99A0}.Release|Mixed Platforms.ActiveCfg = Release|Windows Phone
+		{F6F43B42-F291-49F9-8A84-7030758D99A0}.Release|Mixed Platforms.Build.0 = Release|Windows Phone
+		{F6F43B42-F291-49F9-8A84-7030758D99A0}.Release|Mixed Platforms.Deploy.0 = Release|Windows Phone
+		{F6F43B42-F291-49F9-8A84-7030758D99A0}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+		{F6F43B42-F291-49F9-8A84-7030758D99A0}.Release|Windows Phone.Build.0 = Release|Windows Phone
+		{F6F43B42-F291-49F9-8A84-7030758D99A0}.Release|Windows Phone.Deploy.0 = Release|Windows Phone
+		{F6F43B42-F291-49F9-8A84-7030758D99A0}.Release|x86.ActiveCfg = Release|Windows Phone
+		{52E1A874-7677-4D14-9F13-5A7C73A29D66}.Debug|Mixed Platforms.ActiveCfg = Debug|Windows Phone
+		{52E1A874-7677-4D14-9F13-5A7C73A29D66}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{52E1A874-7677-4D14-9F13-5A7C73A29D66}.Debug|x86.ActiveCfg = Debug|Windows Phone
+		{52E1A874-7677-4D14-9F13-5A7C73A29D66}.Release|Mixed Platforms.ActiveCfg = Release|Windows Phone
+		{52E1A874-7677-4D14-9F13-5A7C73A29D66}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+		{52E1A874-7677-4D14-9F13-5A7C73A29D66}.Release|x86.ActiveCfg = Release|Windows Phone
+		{B9520CDF-0DB7-4D6E-8308-2663E3F24259}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{B9520CDF-0DB7-4D6E-8308-2663E3F24259}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{B9520CDF-0DB7-4D6E-8308-2663E3F24259}.Debug|Windows Phone.ActiveCfg = Debug|x86
+		{B9520CDF-0DB7-4D6E-8308-2663E3F24259}.Debug|x86.ActiveCfg = Debug|x86
+		{B9520CDF-0DB7-4D6E-8308-2663E3F24259}.Debug|x86.Build.0 = Debug|x86
+		{B9520CDF-0DB7-4D6E-8308-2663E3F24259}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{B9520CDF-0DB7-4D6E-8308-2663E3F24259}.Release|Mixed Platforms.Build.0 = Release|x86
+		{B9520CDF-0DB7-4D6E-8308-2663E3F24259}.Release|Windows Phone.ActiveCfg = Release|x86
+		{B9520CDF-0DB7-4D6E-8308-2663E3F24259}.Release|x86.ActiveCfg = Release|x86
+		{B9520CDF-0DB7-4D6E-8308-2663E3F24259}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

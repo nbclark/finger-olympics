@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="ScoreService.asmx.cs" Class="ScoreCenter.ScoreService" %>

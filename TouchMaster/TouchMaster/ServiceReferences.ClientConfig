@@ -1,0 +1,16 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="ScoreServiceSoap" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://mobilesrc.com/scorecenter/scoreservice.asmx"
+                binding="basicHttpBinding" bindingConfiguration="ScoreServiceSoap"
+                contract="ScoreCenter.ScoreServiceSoap" name="ScoreServiceSoap" />
+        </client>
+    </system.serviceModel>
+</configuration>
